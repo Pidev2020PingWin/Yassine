@@ -1,0 +1,75 @@
+user_homepage:
+    path:     /
+    defaults: { _controller: UserBundle:User:index }
+
+home:
+    path:     /index
+    defaults: { _controller: UserBundle:Default:index }
+
+produit:
+    path:     /produit
+    defaults: { _controller: UserBundle:Produit:Home }
+
+peche:
+    path:     /produit2
+    defaults: { _controller: UserBundle:Produit:Home2 }
+
+panier:
+    path:     /panier
+    defaults: { _controller: UserBundle:Commande:afficher_panier }
+
+back:
+    path:     /back
+    defaults: { _controller: UserBundle:User:back }
+
+ajout_categorie:
+    path:     /ajout_cat
+    defaults: { _controller: UserBundle:Categorie:ajoutCategorie }
+
+afficher_categorie:
+    path:     /aff_cat
+    defaults: { _controller: UserBundle:Categorie:afficher_categorie }
+
+supprimercategorie:
+    path:     /afficher_categorie/{id}
+    defaults: { _controller: UserBundle:Categorie:supprimercategorie }
+
+modifier_categorie:
+    path:     /modifier_categorie/{id}
+    defaults: { _controller: UserBundle:Categorie:modifiercategorie }
+
+ajout_produit:
+    path:     /ajout_prod
+    defaults: { _controller: UserBundle:Produit:ajoutproduit }
+
+aff_prod:
+    path:     /aff_prod
+    defaults: { _controller: UserBundle:Produit:afficher_produit }
+
+supprimerproduit:
+  path:     /afficher_produit/{id}
+  defaults: { _controller: UserBundle:Produit:supprimerproduit }
+
+modifier_produit:
+    path:     /modifier_produit/{id}
+    defaults: { _controller: UserBundle:Produit:modifierproduit }
+
+page_commande:
+    path:     /page_commande/{id}
+    defaults: { _controller: UserBundle:Commande:page_commande }
+
+page_commande2:
+  path:     /page_commande2/{id}
+  defaults: { _controller: UserBundle:Commande:page_commande2 }
+
+supprimercommande:
+  path:     /panier/{id}
+  defaults: { _controller: UserBundle:Commande:supprimercommande }
+
+commande_back:
+  path:     /commande_back
+  defaults: { _controller: UserBundle:Commande:afficher_commande_back }
+
+valider_commande:
+  path:     /commande_back/{id}
+  defaults: { _controller: UserBundle:Commande:ValiderCommande }

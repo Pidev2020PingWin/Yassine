@@ -1,0 +1,117 @@
+{% extends 'back2.html.twig' %}
+
+{% block body %}
+    <!DOCTYPE html>
+    <html>
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid #1C6EA4;
+            background-color: #EEEEEE;
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 30px;
+            text-align: left;
+        }
+        table#t01 {
+            width: 100%;
+            background-color: #f1f1c1;
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+        }
+        .myButton {
+            box-shadow: 3px 4px 0px 0px #899599;
+            background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+            background-color:#ededed;
+            border-radius:15px;
+            border:1px solid #d6bcd6;
+            display:inline-block;
+            cursor:pointer;
+            color:#3a8a9e;
+            font-family:Arial;
+            font-size:17px;
+            padding:7px 25px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #e1e2ed;
+        }
+        .myButton:hover {
+            background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+            background-color:#bab1ba;
+        }
+        .myButton:active {
+            position:relative;
+            top:1px;
+        }
+    </style>
+</head>
+<body>
+{% if categorie==NULL %}
+    <h3> Pas de Catégories !</h3>
+{% else %}
+
+    <table border="1">
+        <tr>
+            <td>
+                Id
+            </td>
+            <td>
+                Nom Catégorie
+            </td>
+            <td>
+                Description
+            </td>
+
+        </tr>
+        {%  for entity in categorie %}
+            <tr>
+                <td>
+                    {{entity.id }}
+                </td>
+                <td>
+                    {{entity.nom }}
+                </td>
+
+
+
+
+                <td>
+                    {{ entity.description }}
+                </td>
+
+                <td>
+
+
+                    <a  href ="{{ path('supprimercategorie',{'id':entity.id}) }}" class="myButton">
+                        Supprimer>     </a>
+
+                </td>
+                <td>
+
+                    <a href ="{{ path('modifier_categorie',{'id':entity.id}) }}"  class="myButton">
+                        Modifier>     </a>
+
+                </td>
+
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h3> Retour à l'ajout !</h3>
+    <a href="ajout_cat" class="myButton"> Ajouter</a>
+
+    </a>
+
+{% endif %}
+</body>
+{% endblock %}

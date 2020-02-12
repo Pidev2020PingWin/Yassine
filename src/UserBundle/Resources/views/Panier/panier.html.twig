@@ -1,0 +1,97 @@
+{% extends 'baseafter.html.twig' %}
+
+{% block body %}
+    <h3>. </h3>
+    <h3>. </h3>
+    <h3>. </h3>
+    <h3>. </h3>
+
+    {% set total=0  %}
+    {% set nb=0  %}
+    <div class="shop_inner_inf">
+        <div class="privacy about">
+            <h3>Mon Panier </h3>
+            <div class="checkout-right">
+
+                <table class="timetable_sub">
+                    <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Image</th>
+                        <th>Quantité</th>
+                        <th>Prix Total</th>
+
+                        <th>Supprimer</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {#% set f='' %#}
+
+                    {%  for entity in commandes  %}
+                        {% if entity.user == user %}
+                        <tr class="rem1">
+                            <td class="invert"> {{ entity.produit.description }}</td>
+                            <td class="invert-image"><a > <img src="{{ asset('imageProduits\\' ~ entity.produit.nomimage) }} " style="width: 150px;height: 150px" class="img-thumbnail img-fluid" alt="" ></a></td>
+                            <td class="invert">
+                                {{ entity.quantite }}
+                            </td>
+                            <td class="invert">{{ entity.prixtotal }}</td>
+                            <td class="invert">{# p.total #}</td>
+                            <td class="invert">
+                                <div class="rem">
+
+
+                                    <a href="{{ path('supprimercommande',{'id':entity.id}) }}">
+                                        <i width="1000px" class="close1">
+
+                                        </i>
+                                    </a>
+
+
+
+                                </div>
+                            </td>
+
+
+                        </tr>
+                            {% set nb= nb + 1 %}
+                            {% set total= total + entity.prixtotal  %}
+                    {% endif %}
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md address_form">
+                <div class=" checkout-left-basket">
+                    <br>
+
+                    <br>
+                    {#% if panier|length != 0 %#}
+
+                    {#% endif %#}
+                </div>
+
+                <div class="checkout-right-basket">
+                    <ul>
+                        <li>Nombre de Produits : <span>{{   nb  }} Produits </span></li>
+                        <li>Total : <span>{{   total  }} DT</span></li>
+                    </ul>
+                    <br> <br>
+
+                    <a href="{# path('validCommande')#}"> Valider </a>
+                    {#% endif %#}
+                </div>
+
+
+            </div>
+
+            <div class="clearfix"> </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!-- //top products -->
+</div>
+
+{% endblock %}
